@@ -1,0 +1,55 @@
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+
+int main(){
+setlocale(LC_ALL, "Russian");
+int *Mass, n, i;
+
+cout << "Введите длину массива: ";
+cin >> n;
+Mass = new int[n];
+
+for(i = 0; i < n; i++){
+cout << i << ": "; cin >> Mass[i];
+}
+ Первое задание
+int c, counter = 0;
+cout << "Введите С: ";
+cin >> c;
+for(i = 0; i < n; i++)
+if(Mass[i] > c)
+counter++;
+cout << "Кол-во элементов > c: " << counter;
+ Второе задание
+int x = abs(Mass[0]);
+counter = 0;
+for(i = 0; i < n; i++)
+if(abs(Mass[i]) > x){
+counter = i;
+x = abs(Mass[i]);
+}
+int y = 1;
+for(i = counter+1; i < n; i++)
+y *= Mass[i];
+if(counter == n-1)
+y = 0;
+cout << "\n Произведение эл-ов после максимального по модулю элемента: " << y;
+Третье задание
+for(i = 0; i < n; i++)
+if(Mass[i] != 0 && abs(Mass[i] - 1) > abs(Mass[i])){
+int tmp = Mass[i];
+for(int j = 0; j < i; j++)
+Mass[i - j] = Mass[i - j - 1];
+Mass[0] = tmp;
+}
+
+cout << "\n Сортировка:\n";
+for(i = 0; i < n; i++)
+cout << Mass[i] << ' ';
+cout << endl;
+
+delete []Mass;
+system("pause");
+}
