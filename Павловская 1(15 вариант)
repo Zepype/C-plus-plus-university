@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+ setlocale(LC_ALL, "Russian");
+float F, x, a, b, c, x_start, x_end, dx;
+
+cout << "Vvedite X-nachalnoe: "; cin >> x_start;
+cout << "Vvedite X-konechnoe: "; cin >> x_end;
+cout << "Vvedite dx: "; cin >> dx;
+cout << "Vvedite a: "; cin >> a;
+cout << "Vvedite b: "; cin >> b;
+cout << "Vvedite c: "; cin >> c;
+
+x = x_start;
+
+while (x <= x_end)
+{
+if ((x < 0) && (b != 0)) {
+F = a * x * x + b;
+cout << x << endl ;
+cout << F << endl ;
+}
+else if ((x > 0) && (b = 0)) {
+F = x - a / x - c;
+cout << x << endl ;
+cout << F<< endl ;
+
+}
+else {
+F = x / c;
+cout << x << endl ;
+cout << F << endl ;
+
+}
+x += dx;
+
+}
+return 0;
+}
