@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+int main(){
+    setlocale(LC_ALL,"ru");
+const int n = 3;
+const int m = 3;
+int t;
+int a[n][m];
+for (int i = 0; i < n; ++i)
+for (int j = 0; j < m; ++j)
+cin >> a[i][j];
+for (int i = 0; i < n; ++i)
+{
+for (int j = 0; j < m; ++j)
+cout << a[i][j] << ' ';
+cout << endl;
+} 
+
+// Поиск столбца с нулевым элементом
+int result=m+1;
+    for (int i=0; i < n; i++)
+    {
+         for (int j=0; j < m; j++)
+         {
+             if (a[i][j] == 0)
+                 if(j<result)result=j;
+         }
+    }
+    if(result<m+1)cout << "Номер первого столбца содержащего нулевой элемент: " << result+1 << endl;
+    else cout << "Нулевой элемент в массиве не найден\n";
+
+// С сортировкой не смог справиться :(
+ 
+system("pause");
+return 0;
+
+}
