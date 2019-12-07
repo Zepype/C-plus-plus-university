@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+#define n 3                  /* Ввод размерности матрицы */
+#define m 2       
+
+
+void matrix(int arr[n][m]) {
+for (int i = 0; i < n; ++i)
+{
+for (int j = 0; j < m; ++j)
+cout << arr[i][j] << ' ';
+cout << endl;
+} 
+}
+
+// Поиск столбца с нулевым элементом
+void Ending(int arr[n][m]) {
+int result=m+1;
+    for (int i=0; i < n; i++)
+    {
+         for (int j=0; j < m; j++)
+         {
+             if (arr[i][j] == 0)
+                 if(j<result)result=j;
+         }
+    }
+    if(result<m+1)cout << "Номер первого столбца содержащего нулевой элемент: " << result+1 << endl;
+    else cout << "Нулевой элемент в массиве не найден\n";
+
+}
+
+
+
+
+
+int main(){
+    setlocale(LC_ALL,"ru");
+int t;
+int arr[n][m];
+for (int i = 0; i < n; ++i)
+for (int j = 0; j < m; ++j)
+cin >> arr[i][j];
+matrix(arr);
+Ending(arr);
+ 
+system("pause");
+return 0;
+
+}
