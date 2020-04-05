@@ -1,0 +1,39 @@
+#include <iostream> // Множественное наследование(функции)
+#include <cstdlib>
+using namespace std;
+class Runner
+{
+public:
+void Run()
+{
+cout « "Я могу бегать" « endl;
+}
+
+
+};
+class Slider
+{
+public: void Slide()
+{
+cout « "Я могу ползти" « endl;
+}
+};
+
+class RunningSliding : public Runner, public Slider
+{
+public:
+void Both(){
+cout « " Я могу и ползти и бегать" « endl;
+
+}
+};
+
+int main() {
+setlocale(LC_ALL, "ru");
+RunningSliding c;
+c.Run();
+c.Slide();
+c.Both();
+system("pause");
+return 0;
+}
