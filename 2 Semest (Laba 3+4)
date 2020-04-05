@@ -1,0 +1,60 @@
+#include <string> // Private&Public доступы и Перегрузка операторов  + немного this)
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+class spacecoordinates  { private: int x; int y; int z;
+public:
+spacecoordinates(){
+x = 0;
+y = 0;
+z = 0;
+cout << "Конструктор : " << this  << endl;
+}
+
+spacecoordinates(int X, int Y, int Z){
+x = X;
+y = Y;
+z = Z;
+}
+
+spacecoordinates operator +(const spacecoordinates &other)
+{
+spacecoordinates t; // t-временная переменная 
+t.x = this->x + other.x;
+t.y = this->y + other.y;
+return t;
+}
+
+spacecoordinates operator -(const spacecoordinates &other)
+{
+spacecoordinates t;
+t.x = this->x - other.x;
+t.y = this->y - other.y;
+return t;
+
+}
+void Print()
+{ 
+
+};
+
+};
+
+int main() {
+    setlocale(LC_ALL, "ru");
+cout << "Сложение координат трёх точек: " << endl;
+
+spacecoordinates a(1, 8, 12);
+spacecoordinates b(7, 2, 21);
+spacecoordinates c(2, 7, 11);
+
+spacecoordinates e = a + b + c;
+spacecoordinates f = a - b + c;
+
+
+return 0;
+_getch();
+
+}
