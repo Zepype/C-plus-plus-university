@@ -1,0 +1,58 @@
+#include <iostream> // Всё и Политех!!!
+
+using namespace std;
+
+class Universities{
+    public:
+    int hp;
+    int damage;
+
+};
+int main()
+{ setlocale(LC_ALL, "ru");
+int number;
+Universities NGTU;
+Universities Lobach;
+ cout <<"Добро пожаловать на полигон,командиры! " << endl;
+ cout << "С правилами все ознакомлены(их нет),так что начнём"<< endl;
+ NGTU.hp=Lobach.hp=500;
+ NGTU.damage=65;
+ Lobach.damage=80;
+ 
+ for (int i=0; i<10; i++) {
+     cout <<"♣Бросаем жребий,товарищи♣: "; 
+     cin >> number;
+     
+     // Номер 1-Политех. Поражает своего противника точно в цель.
+     if (number==1){ Lobach.hp=Lobach.hp-65;
+         cout << "Здоровье Политеха: " << "[" <<NGTU.hp<< "]" <<endl;
+         cout << "Здоровье Лобача: " << "[" <<Lobach.hp<< "]" << endl; }
+         
+     
+     // Номер 2-Лобач. Поражает нашего товарища.
+     
+      else if (number==2) { NGTU.hp=NGTU.hp-80;
+     cout << "Здоровье Политеха: " << "[" <<NGTU.hp<< "]" <<endl;
+         cout << "Здоровье Лобача: " << "[" <<Lobach.hp<< "]" << endl; }
+     
+     else { cout << "Только 1 или 2!"; }
+     
+     if (Lobach.hp<=0) {cout << "Поздравляю,вы одолели этого зверя";
+         break;
+     }
+     
+     else if (NGTU.hp<=0) {cout << "Они думали мы проиграли,Х-А,Политех лучше всех!!!"; 
+      break;}
+      
+     
+ 
+
+     
+     
+    
+
+ }     
+ 
+if (NGTU.hp>0 & Lobach.hp>0) { cout << " Это была тяжелая борьба,но вы уже и так знаете кто победил,я прав?! Конечно,победа присуждается Политеху!";}
+ }
+ 
