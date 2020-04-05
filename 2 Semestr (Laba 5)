@@ -1,0 +1,65 @@
+#include <iostream> 
+#include <cstdlib>
+using namespace std;
+class Massive
+{
+  int *array; int count;
+public:
+  Massive(int count)
+  {
+    this->count = count;
+    array = new int[count];
+    for (int i = 0; i < count; i++)
+      array[i] = 0;
+  }
+  int    & element(int i) { return array[i]; }
+  int getCount() { return count; }
+};
+class Vnedrenie
+{
+public:
+  Massive a;
+  Massive b;
+  Massive c;
+  Vnedrenie(int count): a(count), b(count), c(count) { }
+  int getCount() { return a.getCount(); }
+};
+int main()
+{
+  Vnedrenie z(3);
+  for (int i = 0; i <= z.getCount(); i++)
+  {
+    z.a.element(i) = 25 + i; // Срок нарушения Covid 19
+    z.b.element(i) = 40000 + 5000 * i; // Штраф дневной+Повторный
+    z.c.element(i) = 80000 + 1000 * i; // Залог
+  }
+  for (int i = 0; i <= z.getCount(); i++)
+  {
+    cout << z.a.element(i) << "Срок:   \t";
+    cout << z.b.element(i) << "Штраф:  \t";
+    cout << z.c.element(i) << "Залог:  \t";
+  }
+  system("pause");
+  return 0;
+}
+
+
+
+// Деструктор в явном виде
+#include <iostream>
+#include <cstdlib>
+class date
+{
+  int day, year;
+  char *month;
+public:
+  date(int d, char* m, int y)
+  {
+    day = d;
+    month = new char[strlen(m)+1];
+    strcpy(month, strlen(m)+1,m);
+    year = y;
+  }
+  ~date() { delete[] month; } // деструктор
+  system("pause");
+};
