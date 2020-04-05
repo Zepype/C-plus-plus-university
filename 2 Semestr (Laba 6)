@@ -1,0 +1,32 @@
+#include <iostream>   // Статическая переменная 
+#include <cstdlib>
+using namespace std;
+
+class WinningPlaces
+{
+ 
+public:
+ static int i;
+    int count; // Временная переменная
+    WinningPlaces() 
+    { count = i++; } 
+ 
+    int getCount() {
+        return count; }
+};
+ 
+
+int WinningPlaces:: i = 1; 
+ 
+int main()
+{   setlocale(LC_ALL, "ru");
+    WinningPlaces first;
+    WinningPlaces second;
+    WinningPlaces third;
+ 
+    cout <<"[Олег Петров] занимает: " << first.getCount() <<" место"  <<endl;
+    cout <<"[Павел Игнатов] занимает: " << second.getCount() <<" место" <<endl;
+    cout <<"[Аркадий Пучезанов] занимает: "<<  third.getCount() <<" место" <<endl;
+    return 0;
+    system("pause");
+}
