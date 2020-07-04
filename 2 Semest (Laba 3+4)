@@ -4,8 +4,10 @@
 
 using namespace std;
 
-class spacecoordinates  { private: int x; int y )
+class spacecoordinates  {
+    private: int x, y;
 public:
+
 spacecoordinates(){
 x = 0;
 y = 0;
@@ -23,6 +25,7 @@ spacecoordinates temp; // temp-временная переменная
 temp.x = this->x + other.x;
 temp.y = this->y + other.y;
 return temp;
+
 }
 
 spacecoordinates operator -(const spacecoordinates &other)
@@ -32,11 +35,9 @@ t.x = this->x - other.x;
 t.y = this->y - other.y;
 return t;
 
-}
-void Print()
-{ 
 
-};
+}
+
 
 };
 
@@ -51,7 +52,8 @@ spacecoordinates e = a + b;
 spacecoordinates f = a - b;
 
 
+
+
 return 0;
 _getch();
-
 }
