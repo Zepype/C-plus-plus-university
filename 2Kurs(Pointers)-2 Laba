@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void firstFunction(int value)
+{
+    value = 15;
+}
+void secondFunction(int *value)
+{
+    *value = 27;
+}
+int main()
+{
+        setlocale(LC_ALL, "rus");
+        int firstNum = 12;
+        cout << "Это наше первое число: "<< firstNum <<endl;
+        firstFunction(firstNum);
+        cout << "Это наше второе число:" << firstNum <<endl;
+        secondFunction(&firstNum);
+        cout << " Это наше третье число:" << firstNum <<endl;
+        
+}
