@@ -1,0 +1,31 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+    }
+}
+        enum Mark{
+    Audi, BMW, Mercedes, Skoda, Toyota, Kia, Hyundai, Ford, Lada
+    }
+    enum Complectation{
+    standartEdition, premiumEdition, sportEdition
+    }
+    enum Country {
+    Russia, USA, Canada, Japan, China , Switzerland
+    }
+
+      class Car{
+   public double height;
+    public double weight;
+     public int cost;
+
+     public Car(double height, double weight, int cost ){
+         this.height=height;
+         this.weight=weight;
+         this.cost=cost;
+
+     }
+    }
