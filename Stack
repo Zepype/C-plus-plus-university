@@ -1,0 +1,129 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+class Node
+{public:
+	int data;
+	Node* last;
+
+};
+
+int main()
+{
+	setlocale(LC_ALL, "ru");
+
+	Node* ptrLast = NULL;
+	Node* top = NULL;
+	int choice;
+
+	while (1)
+	{
+		
+		cout << "Выберите вариант: " << endl;
+		cout << "1. Запихнуть в стек\n 2. Вытолкнуть из стека\n 3. Верхний элемент стека\n 4. Содержимое стека\n 5. Выход\n";
+		cin >> choice;
+		if (choice == 1)
+		{
+			system("CLS");
+			int numb;
+			cout << "Введите число: ";
+			cin >> numb;
+			Node* ptr = new Node;
+			ptr->data = numb;
+			if (top == NULL)
+			{
+				ptr->last = NULL;
+				top = ptr;
+				ptrLast = ptr;
+				system("CLS");
+				continue;
+			}
+			top = ptr;
+			ptr->last = ptrLast;
+			ptrLast = ptr;
+			system("CLS");
+			continue;
+		}
+
+		if (choice == 2) {
+			system("CLS");
+			Node* ptrDelete = NULL;
+			if (top == NULL)
+			{
+				cout << "Стек пуст\n";
+				system("pause");
+				system("CLS");
+				continue;
+			}
+			ptrDelete = top;
+			if (ptrDelete->last == NULL)
+			{
+				top = NULL;
+				delete ptrDelete;
+				system("CLS");
+				continue;
+			}
+			top = ptrDelete->last;
+			ptrLast = top;
+			delete ptrDelete;
+			continue;
+		}
+		if (choice == 3)
+		{
+			system("CLS");
+			if (top == NULL)
+			{
+				cout << "Стек пуст";
+				system("PAUSE");
+				system("CLS");
+				continue;
+			}
+			cout << "Вершина стека: ";
+			cout << top->data << "\n\n";
+			system("PAUSE");
+			system("CLS");
+			continue;
+		}
+
+		if (choice == 4)
+		{
+			system("CLS");
+			Node* ptr = NULL;
+			if (top == NULL)
+			{
+				cout << "Стек пуст";
+				system("PAUSE");
+				system("CLS");
+				continue;
+			}
+			cout << "Содержимое стека: " << endl << endl;
+
+			ptr = top;
+			while (1)
+			{
+				cout << ptr->data << endl;
+				if (ptr->last == NULL)
+				{
+					system("PAUSE");
+					system("CLS");
+					break;
+				}
+				ptr = ptr->last;
+			}
+		}
+
+		if (choice > 5)
+		{
+			system("CLS");
+			cout << "Нету такого варианта!!! Повторите выбор из предложенных";
+			system("PAUSE");
+			system("CLS");
+			continue;
+		}
+		if (choice == 5)
+		{
+			system("CLS");
+			break;
+		}
+	}
