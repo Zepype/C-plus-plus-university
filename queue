@@ -1,0 +1,161 @@
+#include <iostream>
+
+using namespace std;
+
+template<typename T>
+class List {
+public:
+    List();
+    ~List();
+
+    void deleteAllList();
+    void add(T data);
+    int getSIZE() {
+        return SIZE;
+    }
+
+    void deleteFirstElement();
+
+    T& operator[](const int index);
+
+private:
+
+    template<typename T>
+    class ListElem {
+
+    public:
+        ListElem* nextElem;
+        T elemData;
+
+        ListElem(T elemData = T(), ListElem* nextElem = nullptr) {
+            this->elemData = elemData;
+            this->nextElem = nextElem;
+        }
+    };
+    int SIZE;
+    ListElem<T>* first;
+
+};
+
+
+template<typename T>
+List<T>::List() {
+    SIZE = 0;
+    first = nullptr;
+}
+
+template<typename T>
+List<T>::~List() {
+    deleteAllList();
+}
+
+
+template<typename T>
+void List<T>::add(T data) {
+
+    if (first == nullptr) {
+        first = new ListElem<T>(data);
+    }
+    else {
+        ListElem<T>* currentElem = this->first;
+        while (currentElem->nextElem != nullptr) {
+            currentElem = currentElem->nextElem;
+        }
+
+        currentElem->nextElem = new ListElem<T>(data);
+
+    }
+
+    SIZE++;
+
+}
+
+
+template<typename T>
+T& List<T>::operator[](const int index) {
+
+    int  someVar = 0;
+    int element = 0;
+    ListElem<T>* currentIndex = this->first;
+
+    while (currentIndex != nullptr) {
+
+        if (element == index) {
+            return currentIndex->elemData;
+        }
+        currentIndex = currentIndex->nextElem;
+        element++;
+
+    }
+    
+    return someVar;
+}
+
+
+
+template<typename T>
+void List<T>::deleteAllList() {
+
+    while (SIZE) {
+        ListElem<T> *a = first;
+
+        first = first->nextElem;
+        delete a;
+
+        SIZE -= 1;
+    }
+
+}
+
+template<typename T>
+void List<T>::deleteFirstElement() {
+
+    if (first != nullptr) {
+
+        ListElem<T>* b = first;
+
+        cout << "First element "<<first->elemData<< " has gone\n";
+
+        first = first->nextElem;
+
+        delete b;
+
+        SIZE -= 1;
+
+    }
+
+}
+
+
+int main() {
+    setlocale(LC_ALL, "ru");
+
+    List<int> elem;
+    elem.add(1);
+    elem.add(2);
+    elem.add(3);
+
+    cout << "Первый цикл, добавочных элементов:\n";
+    for (int i = 0; i < elem.getSIZE(); i++)
+    {
+        cout << elem[i]<< endl;
+
+    }
+    cout << "Удаляем первый элемент из очереди\n";
+    cout << "Второй цикл, с удаленным элементом" << endl;
+
+    elem.deleteFirstElement();
+
+    for (int i = 0; i < elem.getSIZE(); i++)
+    {
+        cout << elem[i] << endl;
+    }
+   
+
+    
+   
+
+    
+
+    return 0;
+}
