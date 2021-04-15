@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+
+
+void FillArray(int* const arr, const int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = rand() % 20;
+	}
+
+}
+
+void ShowArray(int* const arr, const int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << arr[i] << endl;
+	}
+}
+
+
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	int size;
+	cout << "Введите размерность динамического массива: \n";
+	cin >> size;
+	int* arr = new int[size];
+	int* secArr = new int[size];
+
+	FillArray(arr, size);
+	FillArray(secArr, size);
+	ShowArray(arr, size);
+	cout << " -------------------------- \n";
+	ShowArray(secArr, size);
+	delete[] arr;
+	cout << " Почистили память первого массива "<<endl;
+	arr = new int[size];
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = secArr[i];
+		cout << arr[i] << endl;
+	}
+	delete[]arr;
+	delete[]secArr;
+
+
+}
